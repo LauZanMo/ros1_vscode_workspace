@@ -4,7 +4,7 @@
 >
 > 基于vscode的ROS开发模板
 
-## 说明
+## 安装
 
 该仓库为vscode里开发ROS的模板，需要安装以下vscode插件：
 
@@ -19,6 +19,30 @@
 - zoneorz.ros-package-variable(ROS调试插件)
 - pijar.ros-snippets(launch文件自动补全)
 - ms-vscode-remote.vscode-remote-extensionpack(微软的远程开发插件)
+
+## 使用
+
+推荐使用catkin tools进行编译
+
+```bash
+catkin init
+catkin config --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
+# 需要调试则用以下这条
+# catkin config --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+catkin build
+```
+
+使用catkin_make编译
+
+```bash
+catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
+# 需要调试则用以下这条
+# catkin_make --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+```
+
+编译完后点击vscode下方的reload the compile_commands.json data bases的按钮
+
+![reload按钮](images/reload按钮.png)
 
 ## docker开发环境(可选)
 
