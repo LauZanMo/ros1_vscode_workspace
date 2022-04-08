@@ -1,0 +1,27 @@
+{
+    "dockerFile": "Dockerfile",
+    "build": {
+        "args": {
+            "WORKSPACE": "${containerWorkspaceFolder}"
+        }
+    },
+    "runArgs": [
+        "--net=host",
+        "--gpus=all",
+        "--cap-add=SYS_PTRACE",
+		"--security-opt=seccomp:unconfined",
+		"--security-opt=apparmor:unconfined",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw"
+    ],
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}",
+        "NVIDIA_DRIVER_CAPABILITIES": "all",
+        "QT_X11_NO_MITSHM": "1",
+    },
+    "extensions": [
+		"ms-vscode.cpptools-extension-pack",
+		"ms-iot.vscode-ros",
+		"VisualStudioExptTeam.vscodeintellicode",
+		"betwo.b2-catkin-tools"
+	]
+}

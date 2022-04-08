@@ -1,0 +1,8 @@
+.vscode/browse*
+build/
+devel/
+logs/
+install/
+.catkin_tools/
+.catkin_workspace
+src/CMakeLists.txt
